@@ -5,12 +5,19 @@ Docker Containers
 	docker pull    # pull image from docker hub
 	docker images  # list the images in local
 	docker run (interactive / detached ) # run a container from an image
+		--cpus # Limit the CPU usage
+		--gpus # Access GPU Resources
+		--memory # Set memory limits
+		--platform # Specify the platform/architecture
 	docker ps      # list the running containers 
 	docker ps -a   # list running + exited containers
 	docker inspect # inspect a container
 	docker stop|start|restart   # stop/start/restart a container 
 	docker rm / docker rm -f    # remove the containers from the server
 	docker exec    # get inside a running container 
+		--privileged # to run commands in privileged mode
+	docker logs	# fetch the logs of a container
+	docker update	# dynamically update resource limits for a running container
 
 Docker Images 
 	docker images  # list images in local
@@ -23,10 +30,13 @@ Docker Images
 image repository 
 	docker hub (public)  # docker image reporsitory 
 	docker registry container (private) # docker image repository open source 
-	DTR (priviate)  # docker image repository licensed tool from docker org 
+	DTR (priviate)  # docker image repository licensed tool from docker org [less commonly used; recommended to use cloud registry instead]
 		docker login  # login to image repo from commad line
 		docker tag    # create alias name for an image in local
 		docker push   # push images to docker image repository
+	docker login 	# Log in to an image repository from the command line
+	docker tag	# creates an alias for a local image
+	docker push	# Push images to a docker image repository
 
 Docker Volumes
 	docker volume ls   # list volumes in local
@@ -39,6 +49,8 @@ Docker COMPOSE:
              docker-compose -f docker-compose.yml up --scale web=4 -d  ; docker-compose down
   case 2: deploy multiple containers from multiple images
              docker-compose -f docker-compose.yml -p webapps up -d --scale web=2 --scale app=2
+	CLOSE THE CONTAINER:
+		docker-compose down
 
 
 Docker Networking:
